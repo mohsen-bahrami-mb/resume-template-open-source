@@ -1,0 +1,44 @@
+<!--
+<% data = include("../components/parseData") %>
+<% success = include("../components/parseSuccess") %>
+<% message = include("../components/parseMessage") %>
+<% err = include("../components/parseErr") %>
+<% msg = include("../components/parseMsg") %>
+-->
+<!-- <pre><%#= data %></pre> -->
+<!-- <pre><%#= data.not_found_address %></pre> -->
+<!-- <pre><%#= err %></pre> -->
+<!-- <pre><%#= msg %></pre> -->
+<!-- <pre><%#= success %></pre> -->
+<!-- <pre><%#= message %></pre> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- styles - start -->
+    <link href="/APP/bootstrap@5.3.0/bootstrap.min.css" rel="stylesheet">
+    <!-- styles - end -->
+    <title>404 | Not Found</title>
+</head>
+
+<body class="container-md">
+    <header class="bg-secondary text-white p-2">
+        <h1>404 | Not Found</h1>
+        <span>success: <%= success %></span>
+        <span> | </span>
+        <span>message: <%= message %></span>
+        <span> | </span>
+        <span>not_found_address: <%= data.not_found_address %></span>
+        <%- include("../components/msg&err") %>
+    </header>
+    <!-- scripts- start -->
+    <script src="/APP/bootstrap@5.3.0/bootstrap.bundle.min.js"></script>
+    <!-- scripts- end -->
+
+</body>
+
+</html>

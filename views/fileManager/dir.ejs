@@ -1,0 +1,50 @@
+<!--
+<% data = include("../components/parseData") %>
+<% success = include("../components/parseSuccess") %>
+<% message = include("../components/parseMessage") %>
+<% err = include("../components/parseErr") %>
+<% msg = include("../components/parseMsg") %>
+-->
+<!-- 
+<%#= data %>
+<%#= data.dir %>
+<%#= data.dir_description %>
+<%#= data.new_dir %>
+<%#= data.url %>
+<%#= err %>
+<%#= msg %>
+<%#= success %>
+<%#= message %>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- styles - start -->
+    <link href="/APP/bootstrap@5.3.0/bootstrap.min.css" rel="stylesheet">
+    <!-- styles - end -->
+    <title>File manager</title>
+</head>
+
+<body class="container-md">
+    <header class="bg-secondary text-white p-2">
+        <h1>File manager</h1>
+        <span>success: <%= success %></span>
+        <span> | </span>
+        <span>message: <%= message %></span>
+        <%- include("../components/msg&err") %>
+    </header>
+    <%- include("../components/ownerTopNav") %>
+        <%- include("../components/FileManager") %>
+            <!-- scripts- start -->
+            <script src="/APP/bootstrap@5.3.0/bootstrap.bundle.min.js"></script>
+            <script src="/APP/script.js"></script>
+            <!-- scripts- end -->
+
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!-- this module needs:
+<%#= data %>
+<%#= data.dir %>
+<%#= data.dir_description %>
+<%#= data.new_dir %>
+<%#= data.url %>
+<%#= err %>
+<%#= msg %>
+<%#= success %>
+<%#= message %>
+-->
+<!-- file manager - start -->
+<div class="row card flex-row mx-1">
+    <div class="col-12 col-md-2">
+        <div class="border rounded my-1">
+            <h5 class="text-center text-decoration-underline">tree directory</h5>
+            <!--
+            <% data.url.split("::").map((part,index,array)=> { %>
+                <% link = "" %>
+                <% linkText = "" %>
+                <% for(let i = 0; i < index; i++) { %>
+                    <% if(part.length > 0 && array[i] !== "") { %>
+                        <% link += i === 0 ? array[i] : ("::"+array[i]) %>
+                        <% linkText += i === 0 ? "/" : ("::"+array[i]) %>
+                    <% } %>
+                <% } %>
+                <% if (link !== "" && linkText !== ""){ %>
+            -->
+            <div class="card m-1">
+                <a href="<%= link %>">> <%= linkText %></a>
+            </div>
+            <!--
+                <% } %>
+            <% }); %>
+            -->
+        </div>
+    </div>
+    <div class="col-12 col-md-10 p-0">
+        <!-- file manager oprator - start -->
+        <div class="bg-primary-subtle row justify-content-between w-100 m-0 p-2">
+            <div class="col-12 col-lg-5 my-1">
+                <form action="<%= data.url %>" method="post"
+                    class="d-flex flex-nowrap justify-content-between align-items-start">
+                    <!-- <label class="col-form-label-sm">create directory: </label> -->
+                    <input class="form-control" type="text" name="_name" placeholder="directory name" value="">
+                    <input class="btn btn-sm btn-primary m-1" type="submit" value="create dir">
+                </form>
+            </div>
+            <div class="col-12 col-lg-5 my-1">
+                <form action="<%= data.url %>?_upload=true" method="post" enctype="multipart/form-data"
+                    class="d-flex flex-nowrap justify-content-between align-items-start">
+                    <!-- <label class="col-form-label-sm">upload files: </label> -->
+                    <input class="form-control" type="file" multiple name="_upload">
+                    <input class="btn btn-sm btn-primary m-1" type="submit" value="upload...">
+                </form>
+            </div>
+        </div>
+        <!-- file manager oprator - end -->
+        <!-- files - start -->
+        <div class="overflow-x-auto">
+            <table class="table table-striped table-light table-hover mb-0 mt-1">
+                <thead class="sticky-top table-warning">
+                    <tr>
+                        <th class="text-danger">name</th>
+                        <th class="text-danger">full path (path+name)</th>
+                        <th class="text-danger">size</th>
+                        <th class="text-danger">copy</th>
+                        <th class="text-danger">rename</th>
+                        <th class="text-danger">delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data.dir) data.dir.map((item,index)=> { %>
+                        <!--  
+                            <% iName = item[2] === 'file' ? item[1].replace(/(.*\/+?)(.+)/,"$2") : item[0] %>
+                            <% iNamePath = item[2] === 'file' ? item[1].replace(/(.*\/+?)(.+)/,"$1") : item[1].replace(item[0],"") %>
+                            -->
+                        <tr>
+                            <th scope="row">
+                                <a class="d-block w-100"
+                                    href="<%= (item[2]==='dir')?(data.url.replace(/\/dir$/, '/dir/') + '::' + item[0]):item[1] %>"
+                                    target="<%= (item[2]==='dir' )?'_self':'_blank' %>">
+                                    <%= iName %>
+                                </a>
+                            </th>
+                            <td>
+                                <%= item[1] %>
+                            </td>
+                            <td>
+                                <%= item[2]==="file" ? (item[3] / 1024 / 1024).toFixed(4) + " MB" : "-- --" %>
+                            </td>
+                            <td>
+                                <form action="<%= data.url.replace(/(.*)(\/dir)(.*)/, " $1/copy$3") %>"
+                                    method="post">
+                                    <input type="hidden" name="base_path" value="<%= item[1] %>">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#copy-<%= iNamePath + iName %>">
+                                        copy
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="copy-<%= iNamePath + iName %>" tabindex="-1"
+                                        aria-labelledby="copy-<%= iNamePath + iName %>Label" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="<%= iNamePath %>Label">
+                                                        Copy to new path...
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label class="form-label">new (path address) (file/dir name)
+                                                        : </label>
+                                                    <div class="input-group input-group-lg shadow my-1">
+                                                        <input type="text" name="dist_path" placeholder="new path..."
+                                                            value="<%= iNamePath %>"
+                                                            class="form-control border-primary">
+                                                        <input type="text" name="dist_path" value="<%= iName %>"
+                                                            class="input-group-text bg-dark text-light border border-primary">
+                                                    </div>
+                                                    <label class="form-label">keep original? </label>
+                                                    <div class="form-check form-switch">
+                                                        <div>
+                                                            <label class="form-check-label"
+                                                                for="keep-<%= index %>">keep</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                id="keep-<%= index %>" name="keep" placeholder="keep"
+                                                                checked value="true">
+                                                        </div>
+                                                        <div>
+                                                            <label class="form-check-label"
+                                                                for="remove-<%= index %>">remove</label>
+                                                            <input class="form-check-input" type="radio"
+                                                                id="remove-<%= index %>" name="keep" placeholder="keep"
+                                                                value="false">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <input class="btn btn-success" type="submit"
+                                                        value="Copy To New Path">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="<%= data.url %>?method=put&dir=<%= (item[2]==='dir')?'true':'false' %>"
+                                    method="post">
+                                    <input type="hidden" name="_name" placeholder="name" value="<%= item[1] %>">
+                                    <input type="hidden" name="_new_name" placeholder="new name"
+                                        value="<%= iNamePath %>">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#rename-<%= iNamePath + iName %>">
+                                        rename
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="rename-<%= iNamePath + iName %>" tabindex="-1"
+                                        aria-labelledby="rename-<%= iNamePath + iName %>Label" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="<%= iNamePath %>Label">
+                                                        Write the new name...
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <input
+                                                        class="form-control form-control-lg border-primary shadow my-1"
+                                                        type="text" name="_new_name" placeholder="new name"
+                                                        value="<%= iName %>">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <input class="btn btn-primary" type="submit" value="Save New Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="<%= data.url %>?method=delete&dir=<%= (item[2]==='dir')?'true':'false' %>"
+                                    method="post">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#delete-<%= iNamePath + iName %>">
+                                        delete
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="delete-<%= iNamePath + iName %>" tabindex="-1"
+                                        aria-labelledby="delete-<%= iNamePath + iName %>Label" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="<%= iNamePath %>Label">
+                                                        Do you want delete this?
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    (path address)(name): <%= iNamePath + iName %>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="hidden" name="_name" placeholder="name"
+                                                        value="<%= item[1] %>">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Cancel</button>
+                                                    <input class="btn btn-danger" type="submit" value="Delete">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <!-- files - end -->
+    </div>
+</div>
+<!-- file manager - end -->

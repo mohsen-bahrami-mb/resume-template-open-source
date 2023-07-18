@@ -1,0 +1,162 @@
+<!-- set this varables in view parent: -->
+<!-- without "#" -->
+<!-- 
+    <%# users = ... %>
+    <%# not_users = ... %>
+    <%# operate_users = ... %>
+-->
+<div>
+    <!-- <% if(users){ %> -->
+    <input type="hidden" name="users" value="">
+    <input type="hidden" name="users" value="">
+    <label for="operate_users">add or remove users access or nothing(not set):</label><br />
+    <select name="operate_users" id="operate_users">
+        <option value="" selected>no set (route users)</option>
+        <option value="remove" <%=operate_users==="remove" ? "selected" : "" %>>remove user</option>
+        <option value="add" <%=operate_users==="add"? "selected" : "" %>>add user</option>
+    </select>
+    <!-- route users -->
+    <table>
+        <!-- <caption>
+            <label for="operate_users_not">not set(route users)</label>
+            <input type="radio" id="operate_users_not" name="operate_users" checked value="">
+        </caption> -->
+        <thead>
+            <tr>
+                <th>username</th>
+                <th>first name</th>
+                <th>last name</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>role</th>
+                <th>deactive</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <% users.map(u=>{ %> -->
+            <tr>
+                <td>
+                    <%= u.username %>
+                </td>
+                <td>
+                    <%= u.first_name %>
+                </td>
+                <td>
+                    <%= u.last_name %>
+                </td>
+                <td>
+                    <%= u.phone %>
+                </td>
+                <td>
+                    <%= u.email %>
+                </td>
+                <td>
+                    <%= u.role %>
+                </td>
+                <td>
+                    <%= u.deactive %>
+                </td>
+            </tr>
+            <!-- <% }); %> -->
+        </tbody>
+    </table>
+    <!-- remove users -->
+    <table>
+        <!-- <caption>
+            <label for="operate_users_remove">remove user</label>
+            <input type="radio" id="operate_users_remove" name="operate_users" value="remove"
+                <%#=operate_users==="remove" ? "checked" : "" %>>
+        </caption> -->
+        <thead>
+            <tr>
+                <th>select</th>
+                <th>username</th>
+                <th>first name</th>
+                <th>last name</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>role</th>
+                <th>deactive</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <% users.map(u=>{ %> -->
+            <tr>
+                <td><input type="checkbox" name="users" id="<%= u.username %>" value="<%= u.username %>"></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.username %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.first_name %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.last_name %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.phone %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.email %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.role %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.deactive %>
+                    </label></td>
+            </tr>
+            <!-- <% }); %> -->
+        </tbody>
+    </table>
+    <!-- <% }; %> -->
+    <!-- <% if(not_users){ %> -->
+    <!-- add users -->
+    <table>
+        <!-- <caption>
+            <label for="operate_users_add">add user</label>
+            <input type="radio" id="operate_users_add" name="operate_users" value="add" <%#=operate_users==="add"
+                ? "checked" : "" %>>
+        </caption> -->
+        <thead>
+            <tr>
+                <th>select</th>
+                <th>username</th>
+                <th>first name</th>
+                <th>last name</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>role</th>
+                <th>deactive</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <% not_users.map(u=>{ %> -->
+            <tr>
+                <td><input type="checkbox" name="users" id="<%= u.username %>" value="<%= u.username %>"></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.username %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.first_name %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.last_name %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.phone %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.email %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.role %>
+                    </label></td>
+                <td><label for="<%= u.username %>">
+                        <%= u.deactive %>
+                    </label></td>
+            </tr>
+            <!-- <% }); %> -->
+        </tbody>
+    </table>
+    <!-- <% }; %> -->
+</div>

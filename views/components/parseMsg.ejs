@@ -1,0 +1,11 @@
+<% let msg = [] %>
+<% if( data.msg ) msg = data.msg %>
+<% return msg; %>
+<!-- 
+    add this line to all views file(after this line).
+    without "#"
+    <%# data = include("./components/parseData") %>
+    it returns an array of messages in data (msg):
+-->
+<!-- without "#" -->
+<%# msg = include("./components/parseData") %>

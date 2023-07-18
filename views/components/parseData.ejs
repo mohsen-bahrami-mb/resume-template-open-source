@@ -1,0 +1,10 @@
+<% if( typeof data === "object" ) data = data %>
+<% if( typeof data === "string" ) data = JSON.parse(data) %>
+<% if(data === undefined) data = {} %>
+<% return data; %>
+<!-- 
+    add this line to all views file(after all includes).
+    it makes object from "data recived":
+-->
+<!-- without "#" -->
+<%# data = include("./components/parseData") %>

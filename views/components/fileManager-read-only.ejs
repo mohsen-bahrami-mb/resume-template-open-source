@@ -1,0 +1,77 @@
+<!-- this module needs:
+<%#= data %>
+<%#= data.dir %>
+<%#= data.dir_description %>
+<%#= data.new_dir %>
+<%#= data.url %>
+<%#= err %>
+<%#= msg %>
+<%#= success %>
+<%#= message %>
+-->
+<!-- file manager - start -->
+<div class="row card flex-row mx-1">
+    <div class="col-12 col-md-2">
+        <div class="border rounded my-1">
+            <h5 class="text-center text-decoration-underline">tree directory</h5>
+            <!--
+            <% data.url.split("::").map((part,index,array)=> { %>
+                <% link = "" %>
+                <% linkText = "" %>
+                <% for(let i = 0; i < index; i++) { %>
+                    <% if(part.length > 0 && array[i] !== "") { %>
+                        <% link += i === 0 ? array[i] : ("::"+array[i]) %>
+                        <% linkText += i === 0 ? "/" : ("::"+array[i]) %>
+                    <% } %>
+                <% } %>
+                <% if (link !== "" && linkText !== ""){ %>
+            -->
+            <div class="card m-1">
+                <a href="<%= link %>">> <%= linkText %></a>
+            </div>
+            <!--
+                <% } %>
+            <% }); %>
+            -->
+        </div>
+    </div>
+    <div class="col-12 col-md-10 p-0">
+        <!-- files - start -->
+        <div class="overflow-x-auto">
+            <table class="table table-striped table-light table-hover mb-0 mt-1">
+                <thead class="sticky-top table-warning">
+                    <tr>
+                        <th class="text-danger">name</th>
+                        <th class="text-danger">full path (path+name)</th>
+                        <th class="text-danger">size</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data.dir) data.dir.map((item,index)=> { %>
+                        <!--  
+                            <% iName = item[2] === 'file' ? item[1].replace(/(.*\/+?)(.+)/,"$2") : item[0] %>
+                            <% iNamePath = item[2] === 'file' ? item[1].replace(/(.*\/+?)(.+)/,"$1") : item[1].replace(item[0],"") %>
+                            -->
+                        <tr>
+                            <th scope="row">
+                                <a class="d-block w-100"
+                                    href="<%= (item[2]==='dir')?(data.url.replace(/\/dir$/, '/dir/') + '::' + item[0]):item[1] %>"
+                                    target="<%= (item[2]==='dir' )?'_self':'_blank' %>">
+                                    <%= iName %>
+                                </a>
+                            </th>
+                            <td>
+                                <%= item[1] %>
+                            </td>
+                            <td>
+                                <%= item[2]==="file" ? (item[3] / 1024 / 1024).toFixed(4) + " MB" : "-- --" %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+        <!-- files - end -->
+    </div>
+</div>
+<!-- file manager - end -->

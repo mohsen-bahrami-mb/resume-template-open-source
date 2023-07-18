@@ -1,0 +1,11 @@
+<% let err = [] %>
+<% if( data.err ) err = data.err %>
+<% return err; %>
+<!-- 
+    add this line to all views file(after this line).
+    without "#"
+    <%# data = include("./components/parseData") %>
+    it returns an array of errors in data (err):
+-->
+<!-- without "#" -->
+<%# err = include("./components/parseData") %>

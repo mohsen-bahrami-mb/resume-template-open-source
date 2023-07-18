@@ -1,0 +1,10 @@
+<% if( typeof success === "boolean" ) success = success %>
+<% if( typeof success === "string" ) success = JSON.parse(success) %>
+<% if(success === undefined) success = null %>
+<% return success; %>
+<!-- 
+    add this line to all views file(after all includes).
+    it makes boolean from "success recived":
+-->
+<!-- without "#" -->
+<%# success = include("./components/parseSuccess") %>
