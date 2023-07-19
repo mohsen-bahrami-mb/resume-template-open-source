@@ -1,37 +1,37 @@
 /* font - start */
 @font-face {
     font-family: "vazir";
-    src: url("./fonts/Vazir-Thin-FD-WOL.ttf"), url("./fonts/Vazir-Thin.ttf");
+    src: url("./Vazir-Thin-FD-WOL.ttf"), url("./Vazir-Thin.ttf");
     font-weight: 100;
 }
 
 @font-face {
     font-family: "vazir";
-    src: url("./fonts/Vazir-Light-FD-WOL.ttf"), url("./fonts/Vazir-Light.ttf");
+    src: url("./Vazir-Light-FD-WOL.ttf"), url("./Vazir-Light.ttf");
     font-weight: lighter;
 }
 
 @font-face {
     font-family: "vazir";
-    src: url("./fonts/Vazir-FD-WOL.ttf"), url("./fonts/Vazir.ttf");
+    src: url("./Vazir-FD-WOL.ttf"), url("./Vazir.ttf");
     font-weight: 400;
 }
 
 @font-face {
     font-family: "vazir";
-    src: url("./fonts/Vazir-Medium-FD-WOL.ttf"), url("./fonts/Vazir-Medium.ttf");
+    src: url("./Vazir-Medium-FD-WOL.ttf"), url("./Vazir-Medium.ttf");
     font-weight: normal;
 }
 
 @font-face {
     font-family: "vazir";
-    src: url("./fonts/Vazir-Bold-FD-WOL.ttf"), url("./fonts/Vazir-Bold.ttf");
+    src: url("./Vazir-Bold-FD-WOL.ttf"), url("./Vazir-Bold.ttf");
     font-weight: bold;
 }
 
-* {
+*:lang(fa) {
     font-family: "vazir";
-    font-size: 14px;
+    /* font-size: 14px; */
 }
 
 /* font  end */

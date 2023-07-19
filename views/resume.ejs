@@ -75,19 +75,19 @@
                     <img src="<%= profile_photo %>" alt="" class="rounded-5"
                         style="max-height: 250px; max-width: 100%;">
                 </div>
-                <h3 class="text-center fw-bolder m-4" style="color: #181dad;">
+                <h3 class="text-center fw-bolder m-4" style="color: #181dad;" lang="fa">
                     <%= full_name %>
                 </h3>
                 <div class="my-4">
                     <!-- <% let hasContact = false; %> -->
                     <!-- <% for(let key in contact) if(contact[key].length) hasContact = true; %> -->
                     <!-- <% if(hasContact){ %> -->
-                    <h4 class="text-center">راه‌های ارتباطی</h4>
+                    <h4 class="text-center" lang="fa">راه‌های ارتباطی</h4>
                     <hr>
                     <!-- <% } %> -->
                     <!-- <% if(contact.phone){ %> -->
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
-                        <span>شماره تماس: </span>
+                        <span lang="fa">شماره تماس: </span>
                         <small class="text-start">
                             <a href="tel:<%= contact.phone %>" dir="ltr"
                                 class="text-primary link-dark text-decoration-none">
@@ -98,7 +98,7 @@
                     <!-- <% } %> -->
                     <!-- <% if(contact.email){ %> -->
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
-                        <span>ایمیل: </span>
+                        <span lang="fa">ایمیل: </span>
                         <small class="text-start">
                             <a href="mailto:<%= contact.email %>" dir="ltr"
                                 class="text-primary link-dark text-decoration-none">
@@ -109,7 +109,7 @@
                     <!-- <% } %> -->
                     <!-- <% if(contact.website){ %> -->
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
-                        <span>آدرس وب: </span>
+                        <span lang="fa">آدرس وب: </span>
                         <small class="text-start">
                             <a href="<%= contact.website %>" dir="ltr"
                                 class="text-primary link-dark text-decoration-none">
@@ -120,7 +120,7 @@
                     <!-- <% } %> -->
                     <!-- <% if(contact.location){ %> -->
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
-                        <span>محل سکونت: </span>
+                        <span lang="fa">محل سکونت: </span>
                         <small class="text-start">
                             <%= contact.location %>
                         </small>
@@ -128,7 +128,7 @@
                     <!-- <% } %> -->
                     <!-- <% if(contact.other) contact.other.forEach(c=>{ %> -->
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
-                        <span>
+                        <span lang="fa">
                             <%= c[0] %>:
                         </span>
                         <small class="text-start">
@@ -143,12 +143,12 @@
                     <!-- <% let hasPersonal = false; %> -->
                     <!-- <% for(let key in personal) if(personal[key].length) hasPersonal = true; %> -->
                     <!-- <% if(hasPersonal){ %> -->
-                    <h4 class="text-center">اطلاعات شخصی</h4>
+                    <h4 class="text-center" lang="fa">اطلاعات شخصی</h4>
                     <hr>
                     <!-- <% } %> -->
                     <!-- <% if(personal.birth_date){ %> -->
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
-                        <span>تاریخ تولد: </span>
+                        <span lang="fa">تاریخ تولد: </span>
                         <small class="text-start">
                             <%= personal.birth_date %>
                         </small>
@@ -156,7 +156,7 @@
                     <!-- <% } %> -->
                     <!-- <% if(personal.gender){ %> -->
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
-                        <span>جنسیت: </span>
+                        <span lang="fa">جنسیت: </span>
                         <small class="text-start">
                             <%= personal.gender %>
                         </small>
@@ -164,7 +164,7 @@
                     <!-- <% } %> -->
                     <!-- <% if(personal.marital){ %> -->
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
-                        <span>وضعیت تاهل: </span>
+                        <span lang="fa">وضعیت تاهل: </span>
                         <small class="text-start">
                             <%= personal.marital %>
                         </small>
@@ -179,13 +179,13 @@
                     <!-- <% skills.map((s,i)=>{ %> -->
                     <div class="row justify-content-between align-items-center m-1">
                         <div class="col-3">
-                            <span class="text-secondary">نام مهارت: </span>
+                            <span class="text-secondary" lang="fa">نام مهارت: </span>
                             <span class="p-0">
                                 <%= s[0] %>
                             </span>
                         </div>
                         <div class="col-9 row justify-content-end">
-                            <span class="col-3 text-secondary">سطح تسلط: </span>
+                            <span class="col-3 text-secondary" lang="fa">سطح تسلط: </span>
                             <div class="col-9 wrapper" dir="ltr">
                                 <input type="range" name="skills[<%= i + 1 %>][1]" min="0" max="5" value="<%= s[1] %>"
                                     step="1" disabled />
@@ -198,7 +198,7 @@
                     <!-- <% }) %> -->
                 </header>
                 <!-- <% } %> -->
-                <main class="mt-3 px-1 px-md-2">
+                <main class="mt-3 px-1 px-md-2" lang="fa">
                     <input type="hidden" id="html_resume" value="<%= HTML_resume %>">
                 </main>
             </div>
