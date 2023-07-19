@@ -1,0 +1,37 @@
+/* font - start */
+@font-face {
+    font-family: "vazir";
+    src: url("./fonts/Vazir-Thin-FD-WOL.ttf"), url("./fonts/Vazir-Thin.ttf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url("./fonts/Vazir-Light-FD-WOL.ttf"), url("./fonts/Vazir-Light.ttf");
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url("./fonts/Vazir-FD-WOL.ttf"), url("./fonts/Vazir.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url("./fonts/Vazir-Medium-FD-WOL.ttf"), url("./fonts/Vazir-Medium.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "vazir";
+    src: url("./fonts/Vazir-Bold-FD-WOL.ttf"), url("./fonts/Vazir-Bold.ttf");
+    font-weight: bold;
+}
+
+* {
+    font-family: "vazir";
+    font-size: 14px;
+}
+
+/* font  end */
