@@ -17,6 +17,17 @@
 
 فایل منیحر پوشه `public` را مدیریت می‌کند.
 
+این متغییرهای محیطی را بر روی سرور خود تنظیم کنید:
+
+- PORT="4000"
+- DEBUG="app:main"
+- NODE_ENV="production"
+- CORS_ALLOW_ORIGIN="*"
+- Content_Security_Policy_script_src=""
+- JWT_SESSION_KEY=""    (چندین کاراکتر رندوم وارد کنید*)
+- C_S_SECRET=""         (چندین کاراکتر رندوم وارد کنید*)
+- OWNER_PASSWORD=""     (یک پسورد وارد کنید. این پسورد برای ورود شما به صفحه پنل مدیریتتان است. از آن در آدرس `/login` استفاده میکنید*)
+
 #### *توجه: اکر دانشی درباره تکنولوژی های گفته شده ندارید، به این فایل ها و پوشه ها دست نزنید: `/APP`, `/manifest.json`*
 
 شما این مسیرها را برای اجرای این برنامه دارید:
@@ -46,6 +57,17 @@ You can deploay more html, css, js files to add more static pages. Just add on `
 example: `https://example.com/public/my-projects/index.html` -> `https://example.com/my-projects/index.html`
 
 The file manager, manage `public` directory.
+
+Set these Environment Variables on your sesrver:
+
+- PORT="4000"
+- DEBUG="app:main"
+- NODE_ENV="production"
+- CORS_ALLOW_ORIGIN="*"
+- Content_Security_Policy_script_src=""
+- JWT_SESSION_KEY=""    (set a random characters*)
+- C_S_SECRET=""         (set a random characters*)
+- OWNER_PASSWORD=""     (set a password. to login on your control panel. it use on `/login`*)
 
 #### *WARNING: If you don't have a knowledges of these technology, don't change these directories and files: `/APP`, `/manifest.json`*
 
