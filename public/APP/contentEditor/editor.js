@@ -51,7 +51,8 @@ function createElementContent() {
 		const element = document.createElement('div');
 		element.style.textAlign = position;
 		element.style.width = parentWidth + "%";
-		element.style.height = parentHeight + "%";
+		element.style.maxHeight = parentHeight + "px";
+		element.style.overflow = "hidden";
 		element.appendChild(newElement);
 		innerElement.appendChild(element);
 		await navigator.clipboard.writeText(innerElement.innerHTML);
@@ -193,7 +194,7 @@ function createNewFileController(element) {
 			<div class="input-group">
 				<span class="input-group-text">ارتفاع: </span>
 				<input class="form-control" name="file[${lastChildIndex + 1}][height]" type="number" value=""><span
-					class="input-group-text">%</span>
+					class="input-group-text">px</span>
 			</div>
 		</li>
 		<li class="dropdown-item">

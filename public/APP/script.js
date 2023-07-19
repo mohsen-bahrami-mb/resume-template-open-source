@@ -2,20 +2,20 @@
 
 /** add data to page - start */
 const html_head_first = document.getElementById("html_head_first");
-html_head_first.insertAdjacentHTML("afterend", html_head_first.attributes.value.value);
-html_head_first.remove();
+html_head_first && html_head_first.insertAdjacentHTML("afterend", html_head_first.attributes.value.value);
+html_head_first && html_head_first.remove();
 const html_head_last = document.getElementById("html_head_last");
-html_head_last.insertAdjacentHTML("afterend", html_head_last.attributes.value.value);
-html_head_last.remove();
+html_head_last && html_head_last.insertAdjacentHTML("afterend", html_head_last.attributes.value.value);
+html_head_last && html_head_last.remove();
 const html_body_first = document.getElementById("html_body_first");
-html_body_first.insertAdjacentHTML("afterend", html_body_first.attributes.value.value);
-html_body_first.remove();
+html_body_first && html_body_first.insertAdjacentHTML("afterend", html_body_first.attributes.value.value);
+html_body_first && html_body_first.remove();
 const html_body_last = document.getElementById("html_body_last");
-html_body_last.insertAdjacentHTML("afterend", html_body_last.attributes.value.value);
-html_body_last.remove();
+html_body_last && html_body_last.insertAdjacentHTML("afterend", html_body_last.attributes.value.value);
+html_body_last && html_body_last.remove();
 const html_resume = document.getElementById("html_resume");
-html_resume.insertAdjacentHTML("afterend", html_resume.attributes.value.value);
-html_resume.remove();
+html_resume && html_resume.insertAdjacentHTML("afterend", html_resume.attributes.value.value);
+html_resume && html_resume.remove();
 /** add data to page - end */
 
 /** listen to doc - start */
