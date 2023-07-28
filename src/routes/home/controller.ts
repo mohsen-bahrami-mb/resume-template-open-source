@@ -1,3 +1,6 @@
+// import modules
+import fs from "fs";
+import path from "path";
 // import controllers
 import Controller, { response } from "../controller";
 // import middleware
@@ -25,7 +28,16 @@ export default new (class extends Controller {
         const content =
             await (await fetch(req.protocol + "://" + req.hostname + ":" + process.env.PORT + "/APP/content.json"))
                 .json();
-        response({ res, message: "get resume page", data: { content }, req, type: "render-nodb", view: "resume" });
+        if (!fs.existsSync(path.join(__dirname, `./../../../views/resume/${content.theme}.ejs`)))
+            return response({
+                res, success: false, sCode: 404, message: "theme error - not fount theme page to render!",
+                data: { err: ["صفحه‌ی تم مدنظر برای نمایش پیدا نشد"] },
+                req, type: "render-nodb", view: "errors/notFound"
+            });
+        response({
+            res, message: "get resume page", data: { content },
+            req, type: "render-nodb", view: `resume/${content.theme}`
+        });
     }
 
 })();

@@ -1,0 +1,396 @@
+<!--
+<% data = include("../components/parseData") %>
+<% success = include("../components/parseSuccess") %>
+<% message = include("../components/parseMessage") %>
+<% err = include("../components/parseErr") %>
+<% msg = include("../components/parseMsg") %>
+-->
+<!--
+<% profile_photo = data && data.content && data.content.profile_photo ? data.content.profile_photo : "" %>
+<% full_name = data && data.content && data.content.full_name ? data.content.full_name : "" %>
+<% job_name = data && data.content && data.content.job_name ? data.content.job_name : "" %>
+<% HTML_resume = data && data.content && data.content.HTML_resume ? data.content.HTML_resume : "" %>
+<% HTML_head_first = data && data.content && data.content.HTML_head_first ? data.content.HTML_head_first : "" %>
+<% HTML_head_last = data && data.content && data.content.HTML_head_last ? data.content.HTML_head_last : "" %>
+<% HTML_body_first = data && data.content && data.content.HTML_body_first ? data.content.HTML_body_first : "" %>
+<% HTML_body_last = data && data.content && data.content.HTML_body_last ? data.content.HTML_body_last : "" %>
+<% HTML_head = data && data.content && data.content.HTML_head ? data.content.HTML_head : {} %>
+<% contact = data && data.content && data.content.contact ? data.content.contact : {} %>
+<% personal = data && data.content && data.content.personal ? data.content.personal : {} %>
+<% skills = data && data.content && data.content.skills ? data.content.skills : [] %>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- *** first in head - start *** -->
+    <meta id="html_head_first" value="<%= HTML_head_first %>">
+    <!-- googl analytics - start --><!-- Google tag (gtag.js) --><!-- googl analytics - end -->
+    <!-- Google Tag Manager -->
+    <!-- End Google Tag Manager -->
+    <!-- *** first in head - end *** -->
+
+    <meta charset="utf-8" />
+    <!-- *** opent graph(og) in head - start *** -->
+    <!-- <% JSON.parse(HTML_head.open_graph).forEach(e => { %> -->
+    <meta property='<%= e[0] %>' content='<%= e[1] %>' />
+    <!-- <% }); %> -->
+
+    <!-- *** opent graph(og) in head - end *** -->
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="<%= HTML_head.description %>" />
+    <meta name="keywords" content="<%= HTML_head.keywords %>" />
+    <meta name="theme-color" content="<%= HTML_head.theme_color %>" />
+    <link rel="icon" href="<%= HTML_head.favicon %>" />
+    <link rel="apple-touch-icon" href="<%= HTML_head.favicon %>" />
+    <link href="/APP/bootstrap@5.3.0/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/APP/styleRangeskill.css">
+    <link rel="stylesheet" href="/APP/style-theme-02.css">
+    <link rel="stylesheet" href="/APP/font/font.css">
+    <!--
+           manifest.json provides metadata used when your web app is installed on a
+           user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+         -->
+    <link rel="manifest" href="/manifest.json" />
+    <title>
+        <%= HTML_head.title %>
+    </title>
+    <!-- *** last in head - start *** -->
+    <meta id="html_head_last" value="<%= HTML_head_last %>">
+    <!-- *** last in head - end *** -->
+</head>
+
+<body class="container-md vh-100"
+    style="background-image: url(/APP/theme-elements/theme-02-back-element.svg); background-attachment: fixed;">
+    <!-- *** first in body - start *** -->
+    <input type="hidden" id="html_body_first" value="<%= HTML_body_first %>">
+    <!-- Google Tag Manager (noscript) --><!-- End Google Tag Manager (noscript) -->
+    <!-- *** first in body - end *** -->
+
+    <!-- body - start -->
+    <div dir="rtl">
+        <div class="row">
+            <header class="col-12 position-relative w-100">
+                <div class="position-absolute w-100" id="top_circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
+                        height="" viewBox="0 0 1000 500">
+                        <defs>
+                            <style>
+                                .cls-1 {
+                                    fill: #212255;
+                                    filter: url(#filter);
+                                }
+
+                                .cls-1,
+                                .cls-2 {
+                                    fill-rule: evenodd;
+                                }
+
+                                .cls-2 {
+                                    fill: #dbdce8;
+                                    opacity: 0.15;
+                                }
+                            </style>
+                            <filter id="filter" x="-15" y="-28" width="1031" height="482" filterUnits="userSpaceOnUse">
+                                <feOffset result="offset" dx="0.349" dy="3.985" in="SourceAlpha" />
+                                <feGaussianBlur result="blur" stdDeviation="4.899" />
+                                <feFlood result="flood" flood-opacity="0.4" />
+                                <feComposite result="composite" operator="in" in2="blur" />
+                                <feBlend result="blend" in="SourceGraphic" />
+                            </filter>
+                        </defs>
+                        <path class="cls-1"
+                            d="M989.758-.385c0,193.578-112.56,329.134-275.821,390.459C649.294,414.356,576.7,424,500,424c-76.535,0-148.958-9.589-213.466-33.768C123.121,328.982,10.5,193.36,10.5-.385,10.5-9.393,989.758-6.4,989.758-.385Z" />
+                        <path class="cls-2"
+                            d="M704.014,189.093a5.639,5.639,0,1,0,5.639-5.645A5.643,5.643,0,0,0,704.014,189.093Zm21.733,0a5.639,5.639,0,1,0,5.638-5.645A5.642,5.642,0,0,0,725.747,189.093Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.643,5.643,0,0,0,747.479,189.093Zm-43.465-21.757a5.639,5.639,0,1,0,5.639-5.645A5.643,5.643,0,0,0,704.014,167.336Zm21.733,0a5.639,5.639,0,1,0,5.638-5.645A5.642,5.642,0,0,0,725.747,167.336Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.643,5.643,0,0,0,747.479,167.336ZM704.014,145.58a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,704.014,145.58Zm21.733,0a5.639,5.639,0,1,0,5.638-5.645A5.641,5.641,0,0,0,725.747,145.58Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,747.479,145.58Zm40.653,43.513a5.639,5.639,0,1,0,5.639-5.645A5.643,5.643,0,0,0,788.132,189.093Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.643,5.643,0,0,0,809.864,189.093Zm21.733,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,831.6,189.093Zm-43.465-21.757a5.639,5.639,0,1,0,5.639-5.645A5.643,5.643,0,0,0,788.132,167.336Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.643,5.643,0,0,0,809.864,167.336Zm21.733,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,831.6,167.336ZM788.132,145.58a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,788.132,145.58Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,809.864,145.58Zm21.733,0a5.639,5.639,0,1,0,5.639-5.645A5.641,5.641,0,0,0,831.6,145.58Zm-43.465-39.7a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,788.132,105.885Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,809.864,105.885Zm21.733,0a5.639,5.639,0,1,0,5.639-5.645A5.641,5.641,0,0,0,831.6,105.885ZM788.132,84.129a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,788.132,84.129Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,809.864,84.129Zm21.733,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,831.6,84.129ZM788.132,62.373a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,788.132,62.373Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,809.864,62.373Zm21.733,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,831.6,62.373Zm40.653,43.512a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,872.25,105.885Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,893.982,105.885Zm21.733,0a5.639,5.639,0,1,0,5.639-5.645A5.641,5.641,0,0,0,915.715,105.885ZM872.25,84.129a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,872.25,84.129Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,893.982,84.129Zm21.733,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,915.715,84.129ZM872.25,62.373a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,872.25,62.373Zm21.732,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,893.982,62.373Zm21.733,0a5.639,5.639,0,1,0,5.639-5.645A5.642,5.642,0,0,0,915.715,62.373Zm-606,49.172a5.639,5.639,0,1,1-5.643,5.639A5.642,5.642,0,0,1,309.713,111.545Zm0,21.733a5.639,5.639,0,1,1-5.643,5.639A5.641,5.641,0,0,1,309.713,133.278Zm0,21.732a5.639,5.639,0,1,1-5.643,5.639A5.642,5.642,0,0,1,309.713,155.01Zm-21.751-43.465a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,287.962,111.545Zm0,21.733a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,287.962,133.278Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,287.962,155.01Zm-21.751-43.465a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,266.211,111.545Zm0,21.733a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,266.211,133.278Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,266.211,155.01Zm43.5,40.653a5.639,5.639,0,1,1-5.643,5.639A5.642,5.642,0,0,1,309.713,195.663Zm0,21.733a5.639,5.639,0,1,1-5.643,5.639A5.641,5.641,0,0,1,309.713,217.4Zm0,21.732a5.639,5.639,0,1,1-5.643,5.639A5.642,5.642,0,0,1,309.713,239.128Zm-21.751-43.465a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,287.962,195.663Zm0,21.733a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,287.962,217.4Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,287.962,239.128Zm-21.751-43.465a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,266.211,195.663Zm0,21.733a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,266.211,217.4Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,266.211,239.128Zm-39.686-43.465a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,226.525,195.663Zm0,21.733a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,226.525,217.4Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,226.525,239.128Zm-21.751-43.465a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,204.774,195.663Zm0,21.733a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,204.774,217.4Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,204.774,239.128Zm-21.751-43.465a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,183.023,195.663Zm0,21.733a5.639,5.639,0,1,1-5.644,5.639A5.64,5.64,0,0,1,183.023,217.4Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,183.023,239.128Zm43.5,40.653a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,226.525,279.781Zm0,21.733a5.639,5.639,0,1,1-5.644,5.638A5.641,5.641,0,0,1,226.525,301.514Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,226.525,323.246Zm-21.751-43.465a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,204.774,279.781Zm0,21.733a5.639,5.639,0,1,1-5.644,5.638A5.641,5.641,0,0,1,204.774,301.514Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.642,5.642,0,0,1,204.774,323.246Zm-21.751-43.465a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,183.023,279.781Zm0,21.733a5.639,5.639,0,1,1-5.644,5.638A5.64,5.64,0,0,1,183.023,301.514Zm0,21.732a5.639,5.639,0,1,1-5.644,5.639A5.641,5.641,0,0,1,183.023,323.246Z" />
+                    </svg>
+                </div>
+                <br>
+                <h1 class="text-center fw-bolder mt-0 mt-sm-5" style="color: #ffffff;" lang="fa">
+                    <%= full_name %>
+                </h1>
+                <h2 class="h3 text-center fw-light" style="color: #dedede;" lang="fa">
+                    <%= job_name %>
+                </h2>
+                <div class="position-absolute text-center w-100" id="header_top_stars"
+                    style="font-weight: bolder; z-index: -99; color: white;">
+                    <span class="fs-6" style="text-shadow: 2px 2px 10px #2f2f2f;">&#9734;</span>
+                    <span class="fs-3" style="text-shadow: 2px 2px 10px #2f2f2f;">&#9734;</span>
+                    <span class="fs-1" style="text-shadow: 2px 2px 10px #2f2f2f;">&#9734;</span>
+                    <span class="fs-3" style="text-shadow: 2px 2px 10px #2f2f2f;">&#9734;</span>
+                    <span class="fs-6" style="text-shadow: 2px 2px 10px #2f2f2f;">&#9734;</span>
+                </div>
+                <div class="position-absolute text-center w-100" id="profile_photo_top">
+                    <img src="<%= profile_photo %>" alt="عکس پروفایل" class="rounded-circle border-0 shadow">
+                </div>
+            </header>
+            <br>
+            <main class="col-12 rounded py-2 px-1 p-md-3 my-3" style="background-color: #f5f5f5ba;" lang="fa">
+                <input type="hidden" id="html_resume" value="<%= HTML_resume %>">
+            </main>
+            <section class="col-12 p-2 py-md-0 p-md-2">
+                <!-- <% if(skills.length) { %> -->
+                <h4 class="text-center" lang="fa">مهارت ها</h4>
+                <hr>
+                <div class="row justify-content-center align-items-center">
+                    <!-- <% skills.map((s,i)=>{ %> -->
+                    <div class="col-3 d-flex justify-content-between align-items-center border rounded-pill shadow m-2"
+                        dir="ltr">
+                        <div>
+                            <%= s[0] %>
+                        </div>
+                        <div>
+                            <!-- <% let counter = 0; %> -->
+                            <!-- <% while( counter < s[1] ){ %> -->
+                            <span class="fs-3" style="color: #212255;">&#9733;</span>
+                            <!-- <% counter++ %> -->
+                            <!-- <% } %> -->
+                            <!-- <% while( counter < 5 ){ %> -->
+                            <span class="fs-3" style="color: #212255;">&#9734;</span>
+                            <!-- <% counter++ %> -->
+                            <!-- <% } %> -->
+                        </div>
+                    </div>
+                    <!-- <% }) %> -->
+                </div>
+                <!-- <% } %> -->
+            </section>
+            <footer class="col-12">
+                <div class="my-3">
+                    <!-- <% let hasPersonal = false; %> -->
+                    <!-- <% for(let key in personal) if(personal[key].length) hasPersonal = true; %> -->
+                    <!-- <% if(hasPersonal){ %> -->
+                    <h4 class="text-center" lang="fa">اطلاعات شخصی</h4>
+                    <hr>
+                    <!-- <% } %> -->
+                    <!-- <% if(personal.birth_date){ %> -->
+                    <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
+                        <span lang="fa">تاریخ تولد: </span>
+                        <small class="text-start">
+                            <%= personal.birth_date %>
+                        </small>
+                    </div>
+                    <!-- <% } %> -->
+                    <!-- <% if(personal.gender){ %> -->
+                    <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
+                        <span lang="fa">جنسیت: </span>
+                        <small class="text-start">
+                            <%= personal.gender %>
+                        </small>
+                    </div>
+                    <!-- <% } %> -->
+                    <!-- <% if(personal.marital){ %> -->
+                    <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
+                        <span lang="fa">وضعیت تاهل: </span>
+                        <small class="text-start">
+                            <%= personal.marital %>
+                        </small>
+                    </div>
+                    <!-- <% } %> -->
+                </div>
+                <div class="row justify-content-around align-items-start flex-wrap my-3 mx-0 w-100">
+                    <!-- <% let hasContact = false; %> -->
+                    <!-- <% for(let key in contact) if(contact[key].length) hasContact = true; %> -->
+                    <!-- <% if(hasContact){ %> -->
+                    <h4 class="text-center" lang="fa">راه‌های ارتباطی</h4>
+                    <hr>
+                    <!-- <% } %> -->
+                    <!-- <% if(contact.phone){ %> -->
+                    <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                        <a lang="fa" href="tel:<%= contact.phone %>"
+                            class="RS-link-contact text-decoration-none link-dark fw-bolder small p-2">
+                            <div class="border border-4 border-light rounded-circle shadow mx-auto d-flex justify-content-center align-items-center"
+                                style="width: 60px; height: 60px; background-color: #d3d3d3;">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    version="1.1" width="60%" height="" viewBox="0 0 256 256" xml:space="preserve">
+                                    <defs>
+                                    </defs>
+                                    <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+                                        transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                                        <path
+                                            d="M 38.789 51.211 l 10.876 10.876 c 0.974 0.974 2.471 1.194 3.684 0.543 l 13.034 -6.997 c 0.964 -0.518 2.129 -0.493 3.07 0.066 l 19.017 11.285 c 1.357 0.805 1.903 2.489 1.268 3.933 c -1.625 3.698 -4.583 10.476 -5.758 13.473 c -0.247 0.631 -0.615 1.209 -1.127 1.652 c -12.674 10.986 -37.89 -2.4 -57.191 -21.701 C 6.358 45.039 -7.028 19.823 3.958 7.149 c 0.444 -0.512 1.022 -0.88 1.652 -1.127 c 2.996 -1.175 9.775 -4.133 13.473 -5.758 c 1.444 -0.635 3.128 -0.089 3.933 1.268 l 11.285 19.017 c 0.558 0.941 0.583 2.106 0.066 3.07 L 27.37 36.651 c -0.651 1.213 -0.431 2.71 0.543 3.684 C 27.913 40.335 38.789 51.211 38.789 51.211 z"
+                                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: #3b3b3b; fill-rule: nonzero; opacity: 1;"
+                                            transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                        <path
+                                            d="M 90 49.5 h -9 C 81 27.168 62.832 9 40.5 9 V 0 C 67.794 0 90 22.206 90 49.5 z"
+                                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: #3b3b3b; fill-rule: nonzero; opacity: 1;"
+                                            transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                        <path
+                                            d="M 72.5 49.5 h -9 c 0 -12.682 -10.317 -23 -23 -23 v -9 C 58.145 17.5 72.5 31.855 72.5 49.5 z"
+                                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: #3b3b3b; fill-rule: nonzero; opacity: 1;"
+                                            transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="link-primary text-center my-2">تلفن</div>
+                        </a>
+                    </div>
+                    <!-- <% } %> -->
+                    <!-- <% if(contact.email){ %> -->
+                    <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                        <a lang="fa" href="mailto:<%= contact.email %>"
+                            class="RS-link-contact text-decoration-none link-dark fw-bolder small p-2">
+                            <div class="border border-4 border-light rounded-circle shadow mx-auto d-flex justify-content-center align-items-center"
+                                style="width: 60px; height: 60px; background-color: #d3d3d3;">
+                                <svg fill="#3b3b3b" height="" width="60%" version="1.1" id="Capa_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 75.294 75.294" xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M66.097,12.089h-56.9C4.126,12.089,0,16.215,0,21.286v32.722c0,5.071,4.126,9.197,9.197,9.197h56.9
+                               c5.071,0,9.197-4.126,9.197-9.197V21.287C75.295,16.215,71.169,12.089,66.097,12.089z M61.603,18.089L37.647,33.523L13.691,18.089
+                               H61.603z M66.097,57.206h-56.9C7.434,57.206,6,55.771,6,54.009V21.457l29.796,19.16c0.04,0.025,0.083,0.042,0.124,0.065
+                               c0.043,0.024,0.087,0.047,0.131,0.069c0.231,0.119,0.469,0.215,0.712,0.278c0.025,0.007,0.05,0.01,0.075,0.016
+                               c0.267,0.063,0.537,0.102,0.807,0.102c0.001,0,0.002,0,0.002,0c0.002,0,0.003,0,0.004,0c0.27,0,0.54-0.038,0.807-0.102
+                               c0.025-0.006,0.05-0.009,0.075-0.016c0.243-0.063,0.48-0.159,0.712-0.278c0.044-0.022,0.088-0.045,0.131-0.069
+                               c0.041-0.023,0.084-0.04,0.124-0.065l29.796-19.16v32.551C69.295,55.771,67.86,57.206,66.097,57.206z" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="link-primary text-center my-2">ایمیل</div>
+                        </a>
+                    </div>
+                    <!-- <% } %> -->
+                    <!-- <% if(contact.website){ %> -->
+                    <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                        <a lang="fa" href="<%= contact.website %>"
+                            class="RS-link-contact text-decoration-none link-dark fw-bolder small p-2">
+                            <div class="border border-4 border-light rounded-circle shadow mx-auto d-flex justify-content-center align-items-center"
+                                style="width: 60px; height: 60px; background-color: #d3d3d3;">
+                                <svg fill="#3b3b3b" height="" width="60%" version="1.1" id="Capa_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 209.281 209.281" xml:space="preserve">
+                                    <path d="M203.456,139.065c3.768-10.786,5.824-22.369,5.824-34.425s-2.056-23.639-5.824-34.425c-0.092-0.324-0.201-0.64-0.333-0.944
+                           C188.589,28.926,149.932,0,104.641,0S20.692,28.926,6.159,69.271c-0.132,0.305-0.242,0.62-0.333,0.944
+                           c-3.768,10.786-5.824,22.369-5.824,34.425s2.056,23.639,5.824,34.425c0.092,0.324,0.201,0.64,0.333,0.944
+                           c14.534,40.346,53.191,69.271,98.482,69.271s83.948-28.926,98.482-69.271C203.255,139.705,203.364,139.39,203.456,139.065z
+                            M104.641,194.281c-3.985,0-10.41-7.212-15.78-23.324c-2.592-7.775-4.667-16.713-6.179-26.436H126.6
+                           c-1.512,9.723-3.587,18.66-6.178,26.436C115.051,187.069,108.626,194.281,104.641,194.281z M80.862,129.521
+                           c-0.721-7.998-1.102-16.342-1.102-24.881s0.381-16.883,1.102-24.881h47.557c0.721,7.998,1.102,16.342,1.102,24.881
+                           s-0.381,16.883-1.102,24.881H80.862z M15.001,104.641c0-8.63,1.229-16.978,3.516-24.881h47.3
+                           c-0.701,8.163-1.057,16.529-1.057,24.881s0.355,16.718,1.057,24.881h-47.3C16.23,121.618,15.001,113.271,15.001,104.641z
+                            M104.641,15c3.985,0,10.411,7.212,15.781,23.324c2.591,7.775,4.667,16.713,6.178,26.435H82.681
+                           c1.512-9.723,3.587-18.66,6.179-26.435C94.231,22.212,100.656,15,104.641,15z M143.464,79.76h47.3
+                           c2.287,7.903,3.516,16.251,3.516,24.881s-1.229,16.978-3.516,24.881h-47.3c0.701-8.163,1.057-16.529,1.057-24.881
+                           S144.165,87.923,143.464,79.76z M184.903,64.76h-43.16c-2.668-18.397-7.245-34.902-13.666-46.644
+                           C152.972,24.865,173.597,42.096,184.903,64.76z M81.204,18.115C74.783,29.857,70.206,46.362,67.538,64.76h-43.16
+                           C35.685,42.096,56.309,24.865,81.204,18.115z M24.378,144.521h43.16c2.668,18.397,7.245,34.902,13.666,46.645
+                           C56.309,184.416,35.685,167.186,24.378,144.521z M128.077,191.166c6.421-11.742,10.998-28.247,13.666-46.645h43.16
+                           C173.597,167.186,152.972,184.416,128.077,191.166z" />
+                                </svg>
+                            </div>
+                            <div class="link-primary text-center my-2">آدرس وب</div>
+                        </a>
+                    </div>
+                    <!-- <% } %> -->
+                    <!-- <% if(contact.location){ %> -->
+                    <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                        <a lang="fa" href="#" class="text-decoration-none link-dark fw-bolder small p-2">
+                            <div class="border border-4 border-light rounded-circle shadow mx-auto d-flex justify-content-center align-items-center"
+                                style="width: 60px; height: 60px; background-color: #d3d3d3;">
+                                <svg fill="#3b3b3b" height="" width="60%" version="1.1" id="Capa_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 297 297" xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M148.5,0C87.43,0,37.747,49.703,37.747,110.797c0,91.026,99.729,179.905,103.976,183.645
+                               c1.936,1.705,4.356,2.559,6.777,2.559c2.421,0,4.841-0.853,6.778-2.559c4.245-3.739,103.975-92.618,103.975-183.645
+                               C259.253,49.703,209.57,0,148.5,0z M148.5,272.689c-22.049-21.366-90.243-93.029-90.243-161.892
+                               c0-49.784,40.483-90.287,90.243-90.287s90.243,40.503,90.243,90.287C238.743,179.659,170.549,251.322,148.5,272.689z" />
+                                        <path d="M148.5,59.183c-28.273,0-51.274,23.154-51.274,51.614c0,28.461,23.001,51.614,51.274,51.614
+                               c28.273,0,51.274-23.153,51.274-51.614C199.774,82.337,176.773,59.183,148.5,59.183z M148.5,141.901
+                               c-16.964,0-30.765-13.953-30.765-31.104c0-17.15,13.801-31.104,30.765-31.104c16.964,0,30.765,13.953,30.765,31.104
+                               C179.265,127.948,165.464,141.901,148.5,141.901z" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="link-dark text-center my-2">محل سکونت</div>
+                            <small class="text-end">
+                                <%= contact.location %>
+                            </small>
+                        </a>
+                    </div>
+                    <!-- <% } %> -->
+                    <!-- <% if(contact.other) contact.other.forEach(c=>{ %> -->
+                    <div class="col-4 d-flex flex-column justify-content-center align-items-center">
+                        <a lang="fa" href="<%= c[1] %>"
+                            class="RS-link-contact text-decoration-none link-dark fw-bolder small p-2">
+                            <div class="border border-4 border-light rounded-circle shadow mx-auto d-flex justify-content-center align-items-center"
+                                style="width: 60px; height: 60px; background-color: #d3d3d3;">
+                                <svg fill="#3b3b3b" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" width="60%" height=""
+                                    viewBox="0 0 442.246 442.246" xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <path d="M409.657,32.474c-43.146-43.146-113.832-43.146-156.978,0l-84.763,84.762c29.07-8.262,60.589-6.12,88.129,6.732
+                                   l44.063-44.064c17.136-17.136,44.982-17.136,62.118,0c17.136,17.136,17.136,44.982,0,62.118l-55.386,55.386l-36.414,36.414
+                                   c-17.136,17.136-44.982,17.136-62.119,0l-47.43,47.43c11.016,11.017,23.868,19.278,37.332,24.48
+                                   c36.415,14.382,78.643,8.874,110.467-16.219c3.06-2.447,6.426-5.201,9.18-8.262l57.222-57.222l34.578-34.578
+                                   C453.109,146.306,453.109,75.926,409.657,32.474z" />
+                                            <path d="M184.135,320.114l-42.228,42.228c-17.136,17.137-44.982,17.137-62.118,0c-17.136-17.136-17.136-44.981,0-62.118
+                                   l91.8-91.799c17.136-17.136,44.982-17.136,62.119,0l47.43-47.43c-11.016-11.016-23.868-19.278-37.332-24.48
+                                   c-38.25-15.3-83.232-8.262-115.362,20.502c-1.53,1.224-3.06,2.754-4.284,3.978l-91.8,91.799
+                                   c-43.146,43.146-43.146,113.832,0,156.979c43.146,43.146,113.832,43.146,156.978,0l82.927-83.845
+                                   C230.035,335.719,220.243,334.496,184.135,320.114z" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="link-primary text-center my-2">
+                                <%= c[0] %>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- <% }) %> -->
+                </div>
+            </footer>
+            <div class="text-center overflow-hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
+                    height="" viewBox="0 0 1000 130">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #212255;
+                                filter: url(#filter);
+                            }
+
+                            .cls-1,
+                            .cls-2 {
+                                fill-rule: evenodd;
+                            }
+
+                            .cls-2 {
+                                fill: #dbdce8;
+                                opacity: 0.15;
+                            }
+                        </style>
+                        <filter id="filter" x="-449" y="3" width="1898" height="864" filterUnits="userSpaceOnUse">
+                            <feOffset result="offset" dx="0.349" dy="3.985" in="SourceAlpha" />
+                            <feGaussianBlur result="blur" stdDeviation="4.899" />
+                            <feFlood result="flood" flood-opacity="0.4" />
+                            <feComposite result="composite" operator="in" in2="blur" />
+                            <feBlend result="blend" in="SourceGraphic" />
+                        </filter>
+                    </defs>
+                    <path class="cls-1"
+                        d="M-424.015,825.9c0-365.488,212.3-621.425,520.235-737.209C218.147,42.849,355.066,24.641,499.736,24.641c144.355,0,280.955,18.1,402.626,63.755C1210.58,204.039,1423,460.1,1423,825.9,1423,842.91-424.015,837.252-424.015,825.9Z" />
+                    <path class="cls-2"
+                        d="M520.6,242.136a5.643,5.643,0,1,1,5.647-5.642A5.644,5.644,0,0,1,520.6,242.136Zm0-21.747a5.643,5.643,0,1,1,5.647-5.642A5.644,5.644,0,0,1,520.6,220.389Zm0-21.747A5.643,5.643,0,1,1,526.242,193,5.644,5.644,0,0,1,520.6,198.642Zm21.762,43.494A5.643,5.643,0,1,1,548,236.494,5.644,5.644,0,0,1,542.357,242.136Zm0-21.747A5.643,5.643,0,1,1,548,214.747,5.644,5.644,0,0,1,542.357,220.389Zm0-21.747A5.643,5.643,0,1,1,548,193,5.644,5.644,0,0,1,542.357,198.642Zm21.763,43.494a5.643,5.643,0,1,1,5.646-5.642A5.644,5.644,0,0,1,564.12,242.136Zm0-21.747a5.643,5.643,0,1,1,5.646-5.642A5.644,5.644,0,0,1,564.12,220.389Zm0-21.747A5.643,5.643,0,1,1,569.766,193,5.645,5.645,0,0,1,564.12,198.642ZM520.6,157.962a5.643,5.643,0,1,1,5.647-5.643A5.645,5.645,0,0,1,520.6,157.962Zm0-21.747a5.643,5.643,0,1,1,5.647-5.643A5.645,5.645,0,0,1,520.6,136.215Zm0-21.747a5.643,5.643,0,1,1,5.647-5.643A5.645,5.645,0,0,1,520.6,114.468Zm21.762,43.494A5.643,5.643,0,1,1,548,152.319,5.645,5.645,0,0,1,542.357,157.962Zm0-21.747A5.643,5.643,0,1,1,548,130.572,5.645,5.645,0,0,1,542.357,136.215Zm0-21.747A5.643,5.643,0,1,1,548,108.825,5.645,5.645,0,0,1,542.357,114.468Zm21.763,43.494a5.643,5.643,0,1,1,5.646-5.643A5.645,5.645,0,0,1,564.12,157.962Zm0-21.747a5.643,5.643,0,1,1,5.646-5.643A5.645,5.645,0,0,1,564.12,136.215Zm0-21.747a5.643,5.643,0,1,1,5.646-5.643A5.645,5.645,0,0,1,564.12,114.468Zm39.705,43.494a5.643,5.643,0,1,1,5.647-5.643A5.645,5.645,0,0,1,603.825,157.962Zm0-21.747a5.643,5.643,0,1,1,5.647-5.643A5.645,5.645,0,0,1,603.825,136.215Zm0-21.747a5.643,5.643,0,1,1,5.647-5.643A5.645,5.645,0,0,1,603.825,114.468Zm21.763,43.494a5.643,5.643,0,1,1,5.646-5.643A5.645,5.645,0,0,1,625.588,157.962Zm0-21.747a5.643,5.643,0,1,1,5.646-5.643A5.645,5.645,0,0,1,625.588,136.215Zm0-21.747a5.643,5.643,0,1,1,5.646-5.643A5.645,5.645,0,0,1,625.588,114.468Zm21.762,43.494A5.643,5.643,0,1,1,653,152.319,5.645,5.645,0,0,1,647.35,157.962Zm0-21.747A5.643,5.643,0,1,1,653,130.572,5.645,5.645,0,0,1,647.35,136.215Zm0-21.747A5.643,5.643,0,1,1,653,108.825,5.645,5.645,0,0,1,647.35,114.468ZM603.825,73.787a5.643,5.643,0,1,1,5.647-5.643A5.644,5.644,0,0,1,603.825,73.787Zm0-21.747a5.643,5.643,0,1,1,5.647-5.643A5.645,5.645,0,0,1,603.825,52.04Zm0-21.747a5.643,5.643,0,1,1,5.647-5.643A5.645,5.645,0,0,1,603.825,30.293Zm21.763,43.494a5.643,5.643,0,1,1,5.646-5.643A5.645,5.645,0,0,1,625.588,73.787Zm0-21.747a5.643,5.643,0,1,1,5.646-5.643A5.645,5.645,0,0,1,625.588,52.04Zm0-21.747a5.643,5.643,0,1,1,5.646-5.643A5.645,5.645,0,0,1,625.588,30.293ZM647.35,73.787A5.643,5.643,0,1,1,653,68.144,5.645,5.645,0,0,1,647.35,73.787Zm0-21.747A5.643,5.643,0,1,1,653,46.4,5.645,5.645,0,0,1,647.35,52.04Zm0-21.747A5.643,5.643,0,1,1,653,24.65,5.645,5.645,0,0,1,647.35,30.293Z" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <!-- body - end -->
+
+    <!-- *** last in body - start *** -->
+    <input type="hidden" id="html_body_last" value="<%= HTML_body_last %>">
+    <!-- *** last in body - end *** -->
+    <!-- scripts- start -->
+    <script src="/APP/bootstrap@5.3.0/bootstrap.bundle.min.js"></script>
+    <script src="/APP/script.js"></script>
+    <!-- scripts- end -->
+</body>
+
+</html>

@@ -1,6 +1,8 @@
 // import controller
 import { checkValidateErr } from "../controller";
 // import modules
+import fs from "fs";
+import path from "path";
 // import types
 import Express from "express";
 
@@ -9,7 +11,7 @@ export default class {
 
     static async contentValidator(req: Express.Request, res: Express.Response, next: Express.NextFunction): Promise<void> {
         let err: string[] = [];
-        let { contact, personal, skills, HTML_head } = req.body;
+        let { contact, personal, skills, HTML_head, theme } = req.body;
         (async () => {
             // check contact
             new Promise((resolve, reject) => {
@@ -45,8 +47,8 @@ export default class {
                         skills = skills.filter((item: any) => item !== "");
                     for (let i = 0; i < skills.length; i++) {
                         if (skills[i].length !== 2) return reject(`skills[${i}] should have 2 index`);
-                        if (Number(skills[i][1]) > 5 || Number(skills[i][1]) < 1)
-                            return reject(`count of skill in skills[${i}][1] should between 1 to 5`);
+                        if (Number(skills[i][1]) > 5 || Number(skills[i][1]) < 0)
+                            return reject(`count of skill in skills[${i}][1] should between 0 to 5`);
                         if (skills[i][0] === "") skills.splice(i, 1)
                     }
                     req.body.skills = skills;
@@ -68,6 +70,12 @@ export default class {
                     resolve(true);
                 } else reject("HTML_head should be an object");
             }).catch((v) => { err.push(v) });
-        })().finally(() => { checkValidateErr(req, res, next, err, "render-nodb","edit/content"); });
+            // check is exist resume theme
+            new Promise((resolve, reject) => {
+                if (!fs.existsSync(path.join(__dirname, `./../../../views/resume/${theme}.ejs`)))
+                    return reject(`صفحه‌ی تم مدنظر برای نمایش پیدا نشد: ${theme}.ejs`);
+                else resolve(true);
+            }).catch((v) => { err.push(v) });
+        })().finally(() => { checkValidateErr(req, res, next, err, "render-nodb", "edit/content"); });
     }
 };

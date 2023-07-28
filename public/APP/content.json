@@ -1,1 +1,32 @@
-{"personal":{"birth_date":"","gender":"","marital":""},"HTML_head":{"title":"رزومه من","open_graph":"[[\"og:title\",\"رزومه من\"],[\"og:description\",\"رزومه کاری و حرفه‌ای من شامل مهارت‌ها و تجربیات کاری\"],[\"og:type\",\"website\"],[\"og:image\",\"/media/logo192.png\"],[\"og:image:width\",\"100\"],[\"og:image:height\",\"100\"]]","description":"رزومه کاری و حرفه‌ای من شامل مهارت‌ها و تجربیات کاری","keywords":"سایت , سایت شخصی , رزومه , رزومه کاری","theme_color":"#ffffff","favicon":"/media/favicon.ico"},"contact":{"other":[],"phone":"","email":"","website":"","location":""},"skills":[],"HTML_resume":"<h2>خوشگل بنویس...😃</h2>","profile_photo":"/media/logo512.png","full_name":"","HTML_head_first":"","HTML_head_last":"","HTML_body_first":"","HTML_body_last":""}
+{
+    "personal": {
+        "birth_date": "",
+        "gender": "",
+        "marital": ""
+    },
+    "HTML_head": {
+        "title": "رزومه من",
+        "open_graph": "[[\"og:title\",\"رزومه من\"],[\"og:description\",\"رزومه کاری و حرفه‌ای من شامل مهارت‌ها و تجربیات کاری\"],[\"og:type\",\"website\"],[\"og:image\",\"/media/logo192.png\"],[\"og:image:width\",\"100\"],[\"og:image:height\",\"100\"]]",
+        "description": "رزومه کاری و حرفه‌ای من شامل مهارت‌ها و تجربیات کاری",
+        "keywords": "سایت , سایت شخصی , رزومه , رزومه کاری",
+        "theme_color": "#ffffff",
+        "favicon": "/media/favicon.ico"
+    },
+    "contact": {
+        "other": [],
+        "phone": "",
+        "email": "",
+        "website": "",
+        "location": ""
+    },
+    "skills": [],
+    "HTML_resume": "<h2>خوشگل بنویس...😃</h2>",
+    "profile_photo": "/media/logo512.png",
+    "full_name": "",
+    "job_name": "",
+    "theme": "theme-02",
+    "HTML_head_first": "",
+    "HTML_head_last": "",
+    "HTML_body_first": "",
+    "HTML_body_last": ""
+}
