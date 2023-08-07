@@ -72,7 +72,7 @@ export async function readDir(pathI: string) {
  * @returns :{success: `boolean`; dir: `string | undefined`; message: `string[]`;} 
 */
 export async function createDir(pathI: string) {
-    const validPath = path.join("/" + pathI.replace(/^\/+/g, "").replace(/\/+$/g, "")).replace(/\\/g, "/");
+    const validPath = path.join("/" + pathI.trim().replace(/ /g, "-").replace(/^\/+/g, "").replace(/\/+$/g, "")).replace(/\\/g, "/");
     const pathJoin = path.join(__dirname + "./../../public/" + validPath);
     let result: FileManager.CreateDir = { success: false, message: [] };
     await new Promise((resolve, reject) => fs.mkdir(pathJoin, { recursive: true },
@@ -93,7 +93,7 @@ export async function createDir(pathI: string) {
 */
 export async function renameOne(oldPath: string, newPath: string, dir: boolean) {
     const validOldPath = path.join("/" + oldPath.replace(/^\/+/g, "").replace(/\/+$/g, "")).replace(/\\/g, "/");
-    const validNewPath = path.join("/" + newPath.replace(/^\/+/g, "").replace(/\/+$/g, "")).replace(/\\/g, "/");
+    const validNewPath = path.join("/" + newPath.trim().replace(/ /g, "-").replace(/^\/+/g, "").replace(/\/+$/g, "")).replace(/\\/g, "/");
     const validOldPathRec = path.join(__dirname + "./../../public/" + validOldPath);
     const validNewPathRec = path.join(__dirname + "./../../public/" + validNewPath);
     // check the path is file or dir. then do process
@@ -286,7 +286,7 @@ export async function deleteOne(pathI: string, dir: boolean) {
 */
 export async function copyOne(oldPath: string, newPath: string, keep = true) {
     const validOldPath = path.join("/" + oldPath.replace(/^\/+/g, "").replace(/\/+$/g, "")).replace(/\\/g, "/");
-    const validNewPath = path.join("/" + newPath.replace(/^\/+/g, "").replace(/\/+$/g, "")).replace(/\\/g, "/");
+    const validNewPath = path.join("/" + newPath.trim().replace(/ /g, "-").replace(/^\/+/g, "").replace(/\/+$/g, "")).replace(/\\/g, "/");
     const validOldPathRec = path.join(__dirname + "./../../public/" + validOldPath);
     const validNewPathRec = path.join(__dirname + "./../../public/" + validNewPath);
     // check pathes

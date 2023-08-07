@@ -89,7 +89,7 @@
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
                         <span lang="fa">شماره تماس: </span>
                         <small class="text-start">
-                            <a href="tel:<%= contact.phone %>" dir="ltr"
+                            <a href="tel:<%= contact.phone %>" dir="ltr" target="_blank"
                                 class="text-primary link-dark text-decoration-none">
                                 <%= contact.phone %>
                             </a>
@@ -100,7 +100,7 @@
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
                         <span lang="fa">ایمیل: </span>
                         <small class="text-start">
-                            <a href="mailto:<%= contact.email %>" dir="ltr"
+                            <a href="mailto:<%= contact.email %>" dir="ltr" target="_blank"
                                 class="text-primary link-dark text-decoration-none">
                                 <%= contact.email %>
                             </a>
@@ -111,7 +111,7 @@
                     <div class="d-flex justify-content-between flex-wrap fw-bolder my-1">
                         <span lang="fa">آدرس وب: </span>
                         <small class="text-start">
-                            <a href="<%= contact.website %>" dir="ltr"
+                            <a href="<%= contact.website %>" dir="ltr" target="_blank"
                                 class="text-primary link-dark text-decoration-none">
                                 <%= contact.website %>
                             </a>
@@ -132,7 +132,8 @@
                             <%= c[0] %>:
                         </span>
                         <small class="text-start">
-                            <a href="<%= c[1] %>" dir="ltr" class="text-primary link-dark text-decoration-none">
+                            <a href="<%= c[1] %>" dir="ltr" class="text-primary link-dark text-decoration-none"
+                                target="_blank">
                                 <%= c[1] %>
                             </a>
                         </small>

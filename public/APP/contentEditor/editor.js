@@ -15,47 +15,53 @@ window.addEventListener('beforeunload', (event) => {
 /** get and set data in resume editor - end */
 
 /** listen to doc - start */
-const filePathListener = new MutationObserver(() => { createElementContent(); });
-filePathListener.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+const filePathListenerEditorFile = new MutationObserver(() => { createElementContent(); });
+filePathListenerEditorFile.observe(document.documentElement, { childList: true, subtree: true });
 /** listen to doc - end */
 
 /** create element to add content - start */
 function createElementContent() {
 	Array.from(document.querySelectorAll(".fm-add-to-content")).forEach(async (f) => {
-		const plarentFile = f.closest("div.dropdown.d-inline");
-		// get style data from the inputs
-		let width = "100%";
-		let type = plarentFile.querySelector("select[name$=\\[type\\]").value;
-		let position = plarentFile.querySelector("select[name$=\\[position\\]").value;
-		let path = plarentFile.querySelector("input[name$=\\[path\\]").value;
-		let parentWidth = plarentFile.querySelector("input[name$=\\[width\\]").value;
-		let parentHeight = plarentFile.querySelector("input[name$=\\[height\\]").value;
-		// create new element with specified type
-		let newElement = "";
-		if (type === "img") {
-			newElement = document.createElement("img");
-			newElement.src = path;
-			newElement.style.width = width;
-		}
-		if (type === "video") {
-			newElement = document.createElement("video");
-			newElement.src = path;
-			newElement.style.width = width;
-		}
-		if (type === "audio") {
-			newElement = document.createElement("audio");
-			newElement.src = path;
-		}
-		// copy the element code to placement in `inser HTML`
-		const innerElement = document.createElement("div");
-		const element = document.createElement('div');
-		element.style.textAlign = position;
-		element.style.width = parentWidth + "%";
-		element.style.maxHeight = parentHeight + "px";
-		element.style.overflow = "hidden";
-		element.appendChild(newElement);
-		innerElement.appendChild(element);
-		await navigator.clipboard.writeText(innerElement.innerHTML);
+		f.addEventListener("click", async () => {
+			const plarentFile = f.closest("div.dropdown.d-inline");
+			// get style data from the inputs
+			let width100 = "100%";
+			let type = plarentFile.querySelector("select[name$=\\[type\\]").value;
+			let position = plarentFile.querySelector("select[name$=\\[position\\]").value;
+			let path = plarentFile.querySelector("input[name$=\\[path\\]").value;
+			let parentWidth = plarentFile.querySelector("input[name$=\\[width\\]").value;
+			let parentHeight = plarentFile.querySelector("input[name$=\\[height\\]").value;
+			// create new element with specified type
+			let newElement = "";
+			if (type === "img") {
+				newElement = document.createElement("img");
+				newElement.src = path;
+				newElement.style.width = width100;
+			}
+			if (type === "video") {
+				newElement = document.createElement("video");
+				newElement.src = path;
+				newElement.style.width = width100;
+			}
+			if (type === "audio") {
+				newElement = document.createElement("audio");
+				newElement.src = path;
+			}
+			const positionElement = document.createElement("div");
+			positionElement.style.width = width100;
+			positionElement.style.display = "flex";
+			positionElement.style.justifyContent = position
+			// copy the element code to placement in `inser HTML`
+			const innerElement = document.createElement("div");
+			const element = document.createElement('div');
+			element.style.width = parentWidth + "%";
+			element.style.maxHeight = parentHeight + "px";
+			element.style.overflow = "hidden";
+			element.appendChild(newElement);
+			positionElement.appendChild(element);
+			innerElement.appendChild(positionElement);
+			await navigator.clipboard.writeText(innerElement.innerHTML);
+		});
 	});
 }
 createElementContent();
@@ -150,7 +156,7 @@ function listenToGetApiFileManager() {
 	})
 }
 document.getElementById("add-file").addEventListener("click", async () => {
-	await getFileManager("http://localhost:4000/edit/file-manager/api/dir");
+	await getFileManager("/edit/file-manager/api/dir");
 	listenToGetApiFileManager();
 });
 // choose files form file manager

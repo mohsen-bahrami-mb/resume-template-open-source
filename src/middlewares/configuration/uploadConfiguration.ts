@@ -13,7 +13,7 @@ function setStorage(path: string) {
         },
         filename: function (req, file, callBack): void {
             // set uniqe file name
-            const uniqeName = new Date().getTime().toString(32) + "-" + file.originalname;
+            const uniqeName = new Date().getTime().toString(32) + "-" + file.originalname.trim().replace(/ /g, "-");
             callBack(null, uniqeName);
         },
     });

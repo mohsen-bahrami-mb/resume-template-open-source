@@ -65,3 +65,8 @@ function listenToCopy() {
 }
 listenToCopy();
 /** copy On Clipboard - end */
+
+/** listen to doc - start */
+const filePathListenerScriptFile = new MutationObserver(() => { listenToCopy(); });
+filePathListenerScriptFile.observe(document.documentElement, { childList: true, subtree: true });
+/** listen to doc - end */
