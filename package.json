@@ -1,6 +1,6 @@
 {
   "name": "resume-template-open-source",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "",
   "main": "./src/index.ts",
   "scripts": {

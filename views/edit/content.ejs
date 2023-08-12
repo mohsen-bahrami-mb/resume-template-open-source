@@ -20,6 +20,7 @@
 <% skills = data && data.content && data.content.skills ? data.content.skills : [] %>
 <% theme = data && data.content && data.content.theme ? data.content.theme : "theme-01" %>
 <% themeNameArr = ["theme-01","theme-02"] %>
+<% theme_config = data && data.content && data.content.theme_config ? data.content.theme_config : {} %> %>
 -->
 <!-- <% function createDate(input){ 
     const year = input.getFullYear();
@@ -139,6 +140,31 @@
                         </option>
                         <!-- <%})%> -->
                     </select>
+                    <label class="col-form-label-sm text-primary fw-bold">
+                        <div>تنظیمات تم:</div>
+                    </label>
+                    <div class="form-control" dir="ltr">
+                        <!-- <% for(let themeName in theme_config){ %> -->
+                        <!-- <% let displayFirstState = themeName === theme ? '': 'd-none' %> -->
+                        <div class="<%= displayFirstState %>">
+                            <div class="text-danger">
+                                <%= themeName %> configs:
+                            </div>
+                            <!-- <% for(let key in theme_config[themeName]){ %> -->
+                            <!-- <% let configs = {} %> -->
+                            <!-- <%= key.includes('color') ? configs = {type: 'color' } : key.includes('opacity') ? configs = {type: 'range'} : configs = {type: 'hidden' } %> -->
+                            <div class="form-control">
+                                <span>
+                                    <%= key %>
+                                </span>
+                                <input type="<%= configs.type %>" name="theme_config[<%= themeName %>][<%= key %>]"
+                                    value="<%= theme_config[themeName][key] %>" class="mb-1" step="0.01" max="1"
+                                    min="0">
+                            </div>
+                            <!-- <% } %> -->
+                        </div>
+                        <!-- <% } %> -->
+                    </div>
                     <label class="col-form-label-sm text-primary fw-bold">مهارت ها: </label>
                     <button type="button" class="add-skill btn btn-sm btn-outline-success w-100 fw-bold mb-1">
                         &#10010; اضافه کردن مهارت

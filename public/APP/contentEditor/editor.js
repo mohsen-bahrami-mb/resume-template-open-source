@@ -324,3 +324,14 @@ function removeLinksListener() {
 }
 removeLinksListener();
 /** add & remove link - end */
+
+/** theme configs - start */
+document.querySelector("select[name=theme]").addEventListener('change', (e) => {
+	const allConfigs = document.querySelectorAll("input[name^=theme_config]");
+	if(!allConfigs.length) return;
+	allConfigs.forEach(c => { c.parentElement.parentElement.classList.add("d-none") });
+	const selector = "input[name^=theme_config\\[" + e.currentTarget.value + "\\]";
+	const targetConfigs = document.querySelectorAll(selector);
+	targetConfigs.forEach(c=>{c.parentElement.parentElement.classList.remove("d-none")});
+})
+/** theme configs - end */
