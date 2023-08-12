@@ -31,7 +31,7 @@ export default new (class extends Controller {
 
     async putContent(req: Express.Request, res: Express.Response): Promise<void> {
         let { HTML_resume, HTML_head, HTML_head_first, HTML_head_last, HTML_body_first, HTML_body_last,
-            profile_photo, full_name, job_name, contact, personal, skills, theme } = req.body;
+            profile_photo, full_name, job_name, contact, personal, skills, theme, theme_config } = req.body;
         // set new content object
         let newContent: { [key: string]: any } = {};
         newContent.personal = {};
@@ -44,6 +44,9 @@ export default new (class extends Controller {
         newContent.full_name = full_name?.toString() ?? null;
         newContent.job_name = job_name?.toString() ?? null;
         newContent.theme = theme?.toString() ?? null;
+        // set theme configs
+        newContent.theme_config = theme_config;
+        // return console.log(newContent.theme_config)
         // set newContent.HTML_head object
         newContent.HTML_head.title = HTML_head?.title?.toString() ?? null;
         newContent.HTML_head.open_graph = HTML_head?.open_graph?.toString() ?? null;

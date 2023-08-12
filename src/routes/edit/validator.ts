@@ -11,7 +11,7 @@ export default class {
 
     static async contentValidator(req: Express.Request, res: Express.Response, next: Express.NextFunction): Promise<void> {
         let err: string[] = [];
-        let { contact, personal, skills, HTML_head, theme } = req.body;
+        let { contact, personal, skills, HTML_head, theme, theme_config } = req.body;
         (async () => {
             // check contact
             new Promise((resolve, reject) => {
@@ -75,6 +75,14 @@ export default class {
                 if (!fs.existsSync(path.join(__dirname, `./../../../views/resume/${theme}.ejs`)))
                     return reject(`صفحه‌ی تم مدنظر برای نمایش پیدا نشد: ${theme}.ejs`);
                 else resolve(true);
+            }).catch((v) => { err.push(v) });
+            // check theme_config
+            new Promise((resolve, reject) => {
+                if (theme_config && typeof theme_config !== "object") theme_config = JSON.parse(HTML_head);
+                if (theme_config && typeof theme_config === "object") {
+                    for (let themeName in theme_config)
+                        if (theme_config.hasOwnProperty(themeName) && typeof themeName === "object") resolve(true);
+                } else reject("theme_config should be an object");
             }).catch((v) => { err.push(v) });
         })().finally(() => { checkValidateErr(req, res, next, err, "render-nodb", "edit/content"); });
     }
