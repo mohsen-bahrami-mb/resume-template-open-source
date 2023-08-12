@@ -25,6 +25,21 @@
     "full_name": "",
     "job_name": "",
     "theme": "theme-02",
+    "theme_config": {
+        "theme-02": {
+            "c_01_background_color_header": "#212255",
+            "c_02_background_color_header_shape": "#dbdce8",
+            "c_03_text_color_header": "#ffffff",
+            "c_04_background_color_page": "#ffffff",
+            "c_05_background_shape_page_opacity": "1",
+            "c_06_main_text_color": "#292d31",
+            "c_07_main_background_color": "#292d31",
+            "c_08_button_text_color": "#1b77fd",
+            "c_09_button_background_color": "#d3d3d3",
+            "c_10_button_foreground_color": "#3b3b3b",
+            "c_11_button_border_color": "#ffffff"
+        }
+    },
     "HTML_head_first": "",
     "HTML_head_last": "",
     "HTML_body_first": "",
