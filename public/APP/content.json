@@ -33,7 +33,7 @@
             "c_04_background_color_page": "#ffffff",
             "c_05_background_shape_page_opacity": "1",
             "c_06_main_text_color": "#292d31",
-            "c_07_main_background_color": "#292d31",
+            "c_07_content_background_COLOR": "#f5f5f5ba",
             "c_08_button_text_color": "#1b77fd",
             "c_09_button_background_color": "#d3d3d3",
             "c_10_button_foreground_color": "#3b3b3b",
