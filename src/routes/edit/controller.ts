@@ -22,7 +22,8 @@ export default new (class extends Controller {
 
     async getContent(req: Express.Request, res: Express.Response): Promise<void> {
         const content =
-            await (await fetch(req.protocol + "://" + req.hostname + ":" + process.env.PORT + "/APP/content.json")).json();
+            await (await fetch(req.protocol + "://" + req.hostname + (process.env.NODE_ENV === "development" ?
+                ":" + process.env.PORT : "") + "/APP/content.json")).json();
         response({
             res, success: true, sCode: 200, message: "get content", data: { content, msg: ["محیط ویرایش صفحه رزومه"] },
             req, type: "render-nodb", view: "edit/content"

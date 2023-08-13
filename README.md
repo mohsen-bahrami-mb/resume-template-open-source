@@ -1,6 +1,6 @@
 > فا
 # قالب رزومه (فرانت اند و بکند)
-### تکنولوژی‌ها: جاوا اسکریپت، تایپ اسکریپت، نود جی اس، ای جی اس
+### تکنولوژی‌ها: جاوا اسکریپت، تایپ اسکریپت، نود جی اس (نسخه ۱۸ به بعد)، ای جی اس
 
 یک قالب کامل است. و فقط نیاز است که آن را روی سروری که دارای نود جی اس است اجرا کنید. ( با این دستورات: npm run build / npm start )
 
@@ -24,6 +24,7 @@
 - NODE_ENV="production"
 - CORS_ALLOW_ORIGIN="*"
 - Content_Security_Policy_script_src=""
+- Content_Security_Policy_default_src=""
 - JWT_SESSION_KEY=""    (چندین کاراکتر رندوم وارد کنید*)
 - C_S_SECRET=""         (چندین کاراکتر رندوم وارد کنید*)
 - OWNER_PASSWORD=""     (یک پسورد وارد کنید. این پسورد برای ورود شما به صفحه پنل مدیریتتان است. از آن در آدرس `/login` استفاده میکنید*)
@@ -41,7 +42,7 @@
 
 # Resume-Template (front-end & back-end)
 
-### Tec: JavaScript , TypeScript , NodeJs , EJS view engine
+### Tec: JavaScript, TypeScript, NodeJs (Version 18 and later), EJS view engine
 
 It is a complate template. just deploy on server and run app with NodeJs. (With this command: npm run build / npm start)
 
@@ -65,6 +66,7 @@ Set these Environment Variables on your sesrver:
 - NODE_ENV="production"
 - CORS_ALLOW_ORIGIN="*"
 - Content_Security_Policy_script_src=""
+- Content_Security_Policy_default_src=""
 - JWT_SESSION_KEY=""    (set a random characters*)
 - C_S_SECRET=""         (set a random characters*)
 - OWNER_PASSWORD=""     (set a password. to login on your control panel. it use on `/login`*)

@@ -25,6 +25,7 @@ export const helmetConfig = {
     contentSecurityPolicy: {
         directives: {
             'script-src': ["'self'", <string>process.env.Content_Security_Policy_script_src],
+            'default-src': ["'self'", <string>process.env.Content_Security_Policy_default_src],
             'img-src': "'self' https: data:",
             'media-src': "'self' https: data:"
         }

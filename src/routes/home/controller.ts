@@ -26,8 +26,8 @@ export default new (class extends Controller {
     // get resume
     async getResume(req: Express.Request, res: Express.Response): Promise<void> {
         const content =
-            await (await fetch(req.protocol + "://" + req.hostname + ":" + process.env.PORT + "/APP/content.json"))
-                .json();
+            await (await fetch(req.protocol + "://" + req.hostname + (process.env.NODE_ENV === "development" ?
+                ":" + process.env.PORT : "") + "/APP/content.json")).json();
         if (!fs.existsSync(path.join(__dirname, `./../../../views/resume/${content.theme}.ejs`)))
             return response({
                 res, success: false, sCode: 404, message: "theme error - not fount theme page to render!",
