@@ -26,11 +26,11 @@ function createElementContent() {
 			const plarentFile = f.closest("div.dropdown.d-inline");
 			// get style data from the inputs
 			let width100 = "100%";
-			let type = plarentFile.querySelector("select[name$=\\[type\\]").value;
-			let position = plarentFile.querySelector("select[name$=\\[position\\]").value;
-			let path = plarentFile.querySelector("input[name$=\\[path\\]").value;
-			let parentWidth = plarentFile.querySelector("input[name$=\\[width\\]").value;
-			let parentHeight = plarentFile.querySelector("input[name$=\\[height\\]").value;
+			let type = plarentFile.querySelector("select[name$=\\[type\\]]").value;
+			let position = plarentFile.querySelector("select[name$=\\[position\\]]").value;
+			let path = plarentFile.querySelector("input[name$=\\[path\\]]").value;
+			let parentWidth = plarentFile.querySelector("input[name$=\\[width\\]]").value;
+			let parentHeight = plarentFile.querySelector("input[name$=\\[height\\]]").value;
 			// create new element with specified type
 			let newElement = "";
 			if (type === "img") {
@@ -330,7 +330,7 @@ document.querySelector("select[name=theme]").addEventListener('change', (e) => {
 	const allConfigs = document.querySelectorAll("input[name^=theme_config]");
 	if(!allConfigs.length) return;
 	allConfigs.forEach(c => { c.parentElement.parentElement.classList.add("d-none") });
-	const selector = "input[name^=theme_config\\[" + e.currentTarget.value + "\\]";
+	const selector = "input[name^=theme_config\\[" + e.currentTarget.value + "\\]]";
 	const targetConfigs = document.querySelectorAll(selector);
 	targetConfigs.forEach(c=>{c.parentElement.parentElement.classList.remove("d-none")});
 })
